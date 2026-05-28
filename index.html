@@ -985,14 +985,14 @@
     text-align: center;
   }
 
-  /* NEWSLETTER */
-  .newsletter {
+  /* Request Access */
+  .Request Access {
     padding: 140px 40px;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
   }
-  .newsletter-eyebrow {
+  .Request Access-eyebrow {
     font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.3em;
@@ -1000,7 +1000,7 @@
     color: var(--mid);
     margin-bottom: 28px;
   }
-  .newsletter-title {
+  .Request Access-title {
     font-family: var(--serif);
     font-size: clamp(36px, 5vw, 64px);
     font-weight: 300;
@@ -1009,8 +1009,8 @@
     margin-bottom: 20px;
     color: var(--black);
   }
-  .newsletter-title em { font-style: italic; }
-  .newsletter-sub {
+  .Request Access-title em { font-style: italic; }
+  .Request Access-sub {
     font-family: var(--serif);
     font-size: 18px;
     font-weight: 300;
@@ -1239,7 +1239,7 @@
     .coming-inner { grid-template-columns: 1fr; gap: 48px; }
     .coming-card { min-height: 420px; }
 
-    .newsletter { padding: 80px 24px; }
+    .Request Access { padding: 80px 24px; }
 
     footer { padding: 60px 24px 32px; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -1268,7 +1268,7 @@
     .categories,
     .about,
     .lookbook,
-    .newsletter { padding-left: 18px; padding-right: 18px; }
+    .Request Access { padding-left: 18px; padding-right: 18px; }
     .section-header { align-items: flex-start; flex-direction: column; gap: 14px; }
     .editorial-grid { grid-template-columns: 1fr; }
     .editorial-item:first-child { grid-column: auto; }
@@ -1402,7 +1402,7 @@
     <li><a href="#coming-soon">Coming Soon</a></li>
   </ul>
   <div class="nav-actions">
-    <a href="#newsletter">Join</a>
+    <a href="#Request Access">Join</a>
     <a href="#">Cart (0)</a>
   </div>
   <button class="nav-burger" id="burgerBtn" aria-label="Menu">
@@ -1418,7 +1418,7 @@
     <li><a href="#about" onclick="closeMobile()">About</a></li>
     <li><a href="#lookbook" onclick="closeMobile()">Lookbook</a></li>
     <li><a href="#coming-soon" onclick="closeMobile()">Coming Soon</a></li>
-    <li><a href="#newsletter" onclick="closeMobile()">Newsletter</a></li>
+    <li><a href="#Request Access" onclick="closeMobile()">Request Access</a></li>
   </ul>
   <div class="mobile-menu-bottom">
     <a href="#">Instagram</a>
@@ -1733,8 +1733,8 @@
   <div class="about-content reveal reveal-delay-2">
     <div class="statement-label">About the Project</div>
     <h2 class="about-headline">
-      Hidden luxury<br>
-      in <em>plain sight.</em>
+      The Art<br>
+      Of <em>Doing Less.</em>
     </h2>
     <p class="about-body">
       LieDown Project was built on one idea: the most confident person in the room is never the loudest. Our clothes don't need logos to announce themselves. They speak through fabric weight, silhouette, and the quiet knowing of the wearer.
@@ -1840,12 +1840,12 @@
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section class="newsletter" id="newsletter">
-  <div class="newsletter-eyebrow reveal">The Inner Circle</div>
-  <h2 class="newsletter-title reveal reveal-delay-1">Stay <em>quietly</em><br>informed.</h2>
-  <p class="newsletter-sub reveal reveal-delay-2">No spam. No noise. Join the private list for drop access, restocks, and unreleased work.</p>
-  <form class="nl-form reveal reveal-delay-3" id="newsletterForm" novalidate>
+<!-- Request Access -->
+<section class="Request Access" id="Request Access">
+  <div class="Request Access-eyebrow reveal">The Inner Circle</div>
+  <h2 class="Request Access-title reveal reveal-delay-1">Stay <em>quietly</em><br>informed.</h2>
+  <p class="Request Access-sub reveal reveal-delay-2">No spam. No noise. Join the private list for drop access, restocks, and unreleased work.</p>
+  <form class="nl-form reveal reveal-delay-3" id="Request AccessForm" novalidate>
     <input type="email" class="nl-input" placeholder="Your email address" id="nlEmail" autocomplete="email" aria-label="Email address" required>
     <button class="nl-btn" type="submit">Join Waitlist</button>
   </form>
@@ -1996,25 +1996,25 @@
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
 
-  // NEWSLETTER
-  const newsletterForm = document.getElementById('newsletterForm');
-  const newsletterInput = document.getElementById('nlEmail');
-  const newsletterStatus = document.getElementById('nlStatus');
+  // Request Access
+  const Request AccessForm = document.getElementById('Request AccessForm');
+  const Request AccessInput = document.getElementById('nlEmail');
+  const Request AccessStatus = document.getElementById('nlStatus');
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  function setNewsletterState(type, message) {
-    newsletterForm.classList.remove('is-success', 'is-error');
-    if (type) newsletterForm.classList.add(`is-${type}`);
-    newsletterStatus.textContent = message;
+  function setRequest AccessState(type, message) {
+    Request AccessForm.classList.remove('is-success', 'is-error');
+    if (type) Request AccessForm.classList.add(`is-${type}`);
+    Request AccessStatus.textContent = message;
   }
 
-  newsletterForm.addEventListener('submit', e => {
+  Request AccessForm.addEventListener('submit', e => {
     e.preventDefault();
-    const email = newsletterInput.value.trim().toLowerCase();
+    const email = Request AccessInput.value.trim().toLowerCase();
 
     if (!emailPattern.test(email)) {
-      setNewsletterState('error', 'Enter a valid email to join the list.');
-      newsletterInput.focus();
+      setRequest AccessState('error', 'Enter a valid email to join the list.');
+      Request AccessInput.focus();
       return;
     }
 
@@ -2022,12 +2022,12 @@
     if (!savedEmails.includes(email)) savedEmails.push(email);
     localStorage.setItem('liedownWaitlist', JSON.stringify(savedEmails));
 
-    newsletterInput.value = '';
-    newsletterInput.placeholder = 'You are on the list.';
-    setNewsletterState('success', 'You are in. First access will land quietly.');
+    Request AccessInput.value = '';
+    Request AccessInput.placeholder = 'You are on the list.';
+    setRequest AccessState('success', 'You are in. First access will land quietly.');
   });
 
-  newsletterInput.addEventListener('input', () => setNewsletterState('', ''));
+  Request AccessInput.addEventListener('input', () => setRequest AccessState('', ''));
 
   // SMOOTH SECTION SCROLL for nav links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
